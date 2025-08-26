@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "title": "Camiseta Esportiva Dry Fit",
+    "description": "Camiseta leve e respirável, ideal para treinos intensos.",
+    "price": 79.90,
+    "category": "Roupas Esportivas",
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cm91cGF8ZW58MHwyfDB8fHwy"
+  },
+  {
+    "id": 2,
+    "title": "Tênis de Corrida Performance",
+    "description": "Tênis com amortecimento avançado e solado antiderrapante.",
+    "price": 349.90,
+    "category": "Calçados Esportivos",
+    "image": "https://images.unsplash.com/photo-1645106281638-79585657aa4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8VCVDMyVBQW5pcyUyMGRlJTIwQ29ycmlkYSUyMFBlcmZvcm1hbmNlfGVufDB8MnwwfHx8Mg%3D%3D"
+  },
+  {
+    "id": 3,
+    "title": "Bola de Futebol Oficial",
+    "description": "Bola de futebol tamanho oficial, costurada à mão e resistente à água.",
+    "price": 129.90,
+    "category": "Futebol",
+    "image": "https://images.unsplash.com/photo-1625030415084-e270954ba037?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Qm9sYSUyMGRlJTIwRnV0ZWJvbCUyME9maWNpYWx8ZW58MHwyfDB8fHwy"
+  },
+  {
+    "id": 4,
+    "title": "Luvas de Academia",
+    "description": "Par de luvas para musculação com reforço antiderrapante.",
+    "price": 59.90,
+    "category": "Academia",
+    "image": "https://img.freepik.com/fotos-gratis/jovem-apta-no-sportswear-ao-ar-livre_23-2148324828.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Garrafa Térmica Esportiva",
+    "description": "Garrafa de 750ml em inox, mantém a temperatura por até 12h.",
+    "price": 89.90,
+    "category": "Acessórios Esportivos",
+    "image": "https://img.freepik.com/fotos-gratis/garrafa-de-agua-fotorrealista_23-2151049017.jpg"
+  },
+  {
+    "id": 6,
+    "title": "Tapete de Yoga Antiderrapante",
+    "description": "Tapete de yoga em EVA de alta densidade, leve e fácil de transportar.",
+    "price": 119.90,
+    "category": "Yoga",
+    "image": "https://img.freepik.com/fotos-gratis/vista-superior-de-um-tapete-rosa-de-fitness-e-dois-halteres-pretos-isolados-em-uma-superficie-rosa_181624-48649.jpg"
+  }
+]

@@ -1,0 +1,85 @@
+:root {
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+[data-theme="dark"] {
+  --background-color: #000000;
+  --text-color: #ffffff;
+
+  // #region header
+
+  // #endregion header
+}
+
+[data-theme="light"] {
+  --background-color: #ffffff;
+  --text-color: #000000;
+
+  // #region header
+
+  // #endregion header
+
+
+}
+
+  // #region shoppingCart
+  @mixin shoppingCartStyles {
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid black;
+      margin-top: 16px;
+
+      li {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 4rem;
+        padding: 16px;
+        .cardItem {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          flex-direction: column;
+          border: 1px solid black;
+          width: 300px;
+          height: 600px;
+          padding: 16px;
+
+          img {
+            width: 100%;
+          }
+
+          .addOrDelItems {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid #949494;
+        
+            
+            .addIcon, .removeIcon {
+              cursor: pointer;
+              font-size: 20px;
+              
+            }
+
+            span {
+              background-color: #dbdbdb;
+              padding: 0px 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // #endregion shoppingCart
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}

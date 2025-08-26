@@ -1,0 +1,11 @@
+@use "../../global.scss" as *;
+
+.shoppingCart {
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 16px;
+
+  @include shoppingCartStyles;
+}
