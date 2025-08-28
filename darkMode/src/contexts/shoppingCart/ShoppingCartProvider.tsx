@@ -1,6 +1,10 @@
 import { useState } from "react";
 import type { ReactNode } from "react";
-import type { ShoppingCartContextType, ShoppingCart } from "./ShoppingCartType";
+import type {
+  ShoppingCartContextType,
+  ShoppingCart,
+  ItemsType,
+} from "./ShoppingCartType";
 import { ShoppingCartContext } from "./ShoppingCartContext";
 
 type ShoppingProviderProps = { children: ReactNode };
@@ -12,15 +16,43 @@ export const ShoppingCartProvider = ({ children }: ShoppingProviderProps) => {
     total: 0,
   });
 
+  console.log("Carrinho ", cart);
 
-  const handleUpdateItem = (item: ShoppingCart) => {
+  const handleAddItem = (item: ShoppingCart) => {
     setCart((prevCart) => ({
-      items: [...prevCart.items || [], ...item.items || []],
+      items: [...(prevCart.items || []), ...(item.items || [])],
       sum: (prevCart.sum ?? 0) + (item.sum ?? 0),
       total: (prevCart.total ?? 0) + (item.total ?? 0),
     }));
   };
 
+  const handleUpdateItem = (newItems: ItemsType[]) => {
+    setCart((prevCart) => ({
+      ...prevCart,
+      items:
+        prevCart.items?.map((item) =>
+          newItems.some((ni) => ni.id === item.id) // verifica se existe com mesmo id
+            ? { ...item, ...newItems.find((ni) => ni.id === item.id) } // mescla
+            : item
+        ) ?? [],
+      sum: newItems.reduce((acc, item) => acc + item.quantity * item.price, 0),
+      // ...código existente...,
+      total: newItems.reduce((acc, item) => acc + item.quantity, 0),
+    }));
+  };
+
+  const handleDeleteItem = (itemId: number) => {
+    setCart((prevCart) => {
+      const updateItem =
+        prevCart.items?.filter((item) => item.id !== itemId) ?? [];
+      return {
+        ...prevCart,
+        items: updateItem,
+        sum: prevCart.sum,
+        total: prevCart.total,
+      };
+    });
+  };
 
   const handleClearCart = () => {
     setCart({ items: [], sum: 0, total: 0 });
@@ -28,7 +60,13 @@ export const ShoppingCartProvider = ({ children }: ShoppingProviderProps) => {
 
   return (
     <ShoppingCartContext.Provider
-      value={{ cart, handleUpdateItem, handleClearCart }}
+      value={{
+        cart,
+        handleAddItem,
+        handleUpdateItem,
+        handleDeleteItem,
+        handleClearCart,
+      }}
     >
       {children}
     </ShoppingCartContext.Provider>

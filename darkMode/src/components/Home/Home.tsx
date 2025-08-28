@@ -7,12 +7,10 @@ import { useShoppingCart } from "../../contexts/shoppingCart/UseShoppingCart";
 
 export const Home = () => {
   const [items, setItems] = useState<ItemsType[]>([]);
-
-
-  const { handleUpdateItem } = useShoppingCart();
+  const { handleAddItem } = useShoppingCart();
 
   useEffect(() => {
-    const fetchCartItems = async () => {
+    const fetchItems = async () => {
       try {
         const response = await axios.get<ItemsType[]>("/data/products.json");
         setItems(response.data);
@@ -20,10 +18,8 @@ export const Home = () => {
         console.error("Failed to fetch cart data", error);
       }
     };
-    fetchCartItems();
+    fetchItems();
   }, []);
-
-
 
   return (
     <div className="home">
@@ -41,7 +37,7 @@ export const Home = () => {
 
                 <button
                   onClick={() =>
-                    handleUpdateItem({
+                    handleAddItem({
                       items: [{ ...item, quantity: 1 }],
                       sum: item.price,
                       total: 1
