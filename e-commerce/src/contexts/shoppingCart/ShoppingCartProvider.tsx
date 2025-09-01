@@ -19,11 +19,21 @@ export const ShoppingCartProvider = ({ children }: ShoppingProviderProps) => {
   console.log("Carrinho ", cart);
 
   const handleAddItem = (item: ShoppingCart) => {
-    setCart((prevCart) => ({
-      items: [...(prevCart.items || []), ...(item.items || [])],
-      sum: (prevCart.sum ?? 0) + (item.sum ?? 0),
-      total: (prevCart.total ?? 0) + (item.total ?? 0),
-    }));
+    if (
+      item.items &&
+      cart.items &&
+      item.items.some((newItem) =>
+        cart.items?.some((cartItem) => cartItem.id === newItem.id)
+      )
+    ) {
+      alert("Item ja adicionado no carrinho");
+    } else {
+      setCart((prevCart) => ({
+        items: [...(prevCart.items || []), ...(item.items || [])],
+        sum: (prevCart.sum ?? 0) + (item.sum ?? 0),
+        total: (prevCart.total ?? 0) + (item.total ?? 0),
+      }));
+    }
   };
 
   const handleUpdateItem = (newItems: ItemsType[]) => {

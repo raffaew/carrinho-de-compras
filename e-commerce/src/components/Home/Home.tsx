@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import type { ItemsType } from "../../contexts/shoppingCart/ShoppingCartType";
 import { useShoppingCart } from "../../contexts/shoppingCart/UseShoppingCart";
 
-
 export const Home = () => {
   const [items, setItems] = useState<ItemsType[]>([]);
   const { handleAddItem } = useShoppingCart();
@@ -30,17 +29,16 @@ export const Home = () => {
             items.map((item) => (
               <div className="cardItem" key={item.id}>
                 <h3>{item.title}</h3>
-                <p>{item.category}</p>
-                <p>Preço: ${item.price.toFixed(2)}</p>
-                <p>Descrição: {item.description}</p>
                 <img src={item.image} alt={item.title} />
+                <p>{item.description}</p>
+                <p>R$: {item.price.toFixed(2)}</p>
 
                 <button
                   onClick={() =>
                     handleAddItem({
                       items: [{ ...item, quantity: 1 }],
                       sum: item.price,
-                      total: 1
+                      total: 1,
                     })
                   }
                 >

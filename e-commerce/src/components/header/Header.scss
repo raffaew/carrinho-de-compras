@@ -1,0 +1,64 @@
+@use "../../global.scss";
+
+.header {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 1%;
+  border: 1px solid var(--text-color);
+
+  .title-header {
+    a {
+      text-decoration: none;
+      color: var(--text-color);
+      font-size: 24px;
+      font-weight: 500;
+    }
+  }
+
+  .icons {
+    display: flex;
+    gap: 8px;
+    max-width: 90px;
+
+    .icon-theme {
+      button {
+        border: none;
+        display: flex;
+        padding: 4px;
+        color: var(--text-color);
+        background-color: transparent;
+        font-size: 26px;
+        cursor: pointer;
+      }
+    }
+    .icon-cart {
+      display: flex;
+      
+      .cart {
+        font-size: 29px;
+        color: var(--text-color);
+      }
+
+      span {
+        position:fixed;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+        width: 17px;
+        height: 17px;
+        border-radius: 100%;
+        background-color: red;
+        color: #fff;
+        font-weight: 500;
+        font-size: 14px;
+        right: 19px;
+        top: 12px
+        
+        
+      }
+    }
+  }
+}

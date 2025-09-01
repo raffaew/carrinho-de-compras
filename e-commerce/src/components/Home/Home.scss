@@ -1,11 +1,12 @@
 @use "../../global.scss" as *;
 
 .home {
+  @include shoppingCartStyles;
   display: flex;
   align-items: start;
   justify-content: center;
   flex-direction: column;
   margin-top: 16px;
-
-  @include shoppingCartStyles;
+  text-align: center;
+  
 }
