@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "title": "Tênis de Corrida Performance",
+    "title": "Tênis de Corrida",
     "description": "Tênis com amortecimento avançado",
     "price": 349.90,
     "category": "Calçados Esportivos",
@@ -41,7 +41,7 @@
   },
   {
     "id": 6,
-    "title": "Tapete de Yoga Antiderrapante",
+    "title": "Tapete de Yoga",
     "description": "Tapete de yoga em EVA de alta densidade",
     "price": 119.90,
     "category": "Yoga",

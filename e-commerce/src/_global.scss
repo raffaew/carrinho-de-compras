@@ -1,12 +1,16 @@
 :root {
   --background-color: #ffffff;
-  --text-color: #000000;
+  --texts-colors: #000000;
   font-family: poppins, sans-serif;
+  height: 100vh;
 }
 
 [data-theme="dark"] {
   --background-color: #000000;
-  --text-color: #ffffff;
+  --texts-colors: #fff;
+  --border-colors: #5d5d5d;
+  --background-cards: #1b1b1b;
+  --background-buttons: #000000;
 
   // #region header
 
@@ -14,89 +18,21 @@
 }
 
 [data-theme="light"] {
-  --background-color: #ffffff;
-  --text-color: #000000;
+  --background-color: #fff;
+  --texts-colors: #000000;
+  --border-colors: #ccc;
+  --background-cards: #f6f6f6;
+  --background-buttons: #0266f4;
 
   // #region header
 
   // #endregion header
-
-
 }
-
-
-  @mixin shoppingCartStyles {
-    ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      margin-top: 16px;
-     
-
-      li {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 4rem;
-        padding: 16px;
-
-        .cardItem {
-          display: flex;
-          align-items: start;
-          justify-content: space-between;
-          gap: 10px;
-          flex-direction: column;
-          width: 300px;
-          height: 550px;
-          padding: 16px;
-          box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.155);
-          border-radius: 6px;
-
-          img {
-            width: 100%;
-          }
-
-          .infoPrice{
-            display: flex;
-            flex-direction: column;
-            align-items: start;
-                height: 140px;
-    justify-content: space-around;
-
-            p {
-              text-align: left;
-            }
-          }
-
-          .addOrDelItems {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid #949494;
-        
-            
-            .addIcon, .removeIcon {
-              cursor: pointer;
-              font-size: 20px;
-              
-            }
-
-            span {
-              background-color: #dbdbdb;
-              padding: 0px 20px;
-            }
-          }
-        }
-      }
-    }
-  }
-
-  // #endregion shoppingCart
 
 body {
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: var(--texts-colors);
+  height: 100%;
 
   button {
     cursor: pointer;
@@ -104,8 +40,68 @@ body {
     border-radius: 6px;
     border: none;
     font-family: poppins, sans-serif;
-    border: 1px solid rgba(0, 0, 0, 0.301);
-    
-    
+    color: #fff;
+    background-color: var(--background-buttons);
+    font-weight: 500;
+    transition: 0.3s;
+
+    &:hover {
+      transform: translateY(-3px);
+      opacity: 0.8;
+    }
   }
 }
+
+@mixin shoppingCartStyles {
+  padding: 16px;
+  gap: 16px;
+  ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 4rem;
+    width: 1200px;
+
+    .cardItem {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-direction: column;
+      width: 300px;
+      height: 550px;
+      padding: 16px;
+      box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.155);
+      border-radius: 6px;
+      background-color: var(--background-cards);
+
+      .price {
+        font-size: 20px;
+      }
+
+      img {
+        width: 100%;
+      }
+
+      .infoPrice {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        height: 140px;
+        justify-content: space-around;
+
+        button {
+          margin: 0 auto;
+          width: 95%;
+        }
+
+        p {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+
+
+

@@ -66,6 +66,13 @@ export const ShoppingCartProvider = ({ children }: ShoppingProviderProps) => {
     setCart({ items: [], sum: 0, total: 0 });
   };
 
+ const handleFormatPrice = (price: number) => {
+    return price.toLocaleString("pt-BR", {
+      style: "currency",
+      currency: "BRL",
+    });
+};
+
   return (
     <ShoppingCartContext.Provider
       value={{
@@ -74,6 +81,7 @@ export const ShoppingCartProvider = ({ children }: ShoppingProviderProps) => {
         handleUpdateItem,
         handleDeleteItem,
         handleClearCart,
+        handleFormatPrice,
       }}
     >
       {children}

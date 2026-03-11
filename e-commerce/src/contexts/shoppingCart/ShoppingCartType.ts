@@ -20,4 +20,6 @@ export type ShoppingCartContextType = {
   handleUpdateItem: (item: ItemsType[]) => void;
   handleDeleteItem: (itemId: number) => void;
   handleClearCart: () => void;
+  handleFormatPrice: (price: number) => string;
+
 };

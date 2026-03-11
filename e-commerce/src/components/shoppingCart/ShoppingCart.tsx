@@ -8,7 +8,7 @@ import { IoMdAdd } from "react-icons/io";
 import { IoRemove } from "react-icons/io5";
 
 const ShoppingCart = () => {
-  const { cart, handleClearCart, handleUpdateItem, handleDeleteItem } =
+  const { cart, handleClearCart, handleUpdateItem, handleDeleteItem, handleFormatPrice } =
     useShoppingCart();
 
   const [newCart, setNewCart] = useState<ItemsType[]>([]);
@@ -63,25 +63,22 @@ const ShoppingCart = () => {
 
   return (
     <div className="shoppingCart">
-      <h1>Carrinho</h1>
     {(cart.items?.length !== 0) ? (
       <>
-       <button onClick={handleClearCart}>Esvaziar Carrinho</button>
       <ul>
-        <li>
           {cart.items?.map((item) => (
-            <div className="cardItem" key={item.id}>
+            <li className="cardItem" key={item.id}>
               <h3>{item.title}</h3>
-              <p>Preço: ${item.price?.toFixed(2)}</p>
               <p>Quantidade: {quantityItems[item.id]}</p>
               <img src={item.image} alt={item.title} />
+               <p className="price" >{handleFormatPrice(item.price)}</p>
 
               <div className="addOrDelItems">
                 <IoRemove
                   className="removeIcon"
                   onClick={() => handleQuantityChange(item.id, "decrease")}
                 />
-                <span>{quantityItems[item.id]}</span>
+                <span className="quantity">{quantityItems[item.id]}</span>
                 <IoMdAdd
                   className="addIcon"
                   onClick={() => handleQuantityChange(item.id, "increase")}
@@ -89,24 +86,25 @@ const ShoppingCart = () => {
               </div>
 
               <div className="subTotal">
-                Subtotal: {(item.quantity * item.price).toFixed(2)}
+                Subtotal: {handleFormatPrice(item.quantity * item.price)}
               </div>
-            </div>
+            </li>
           ))}
-        </li>
-        <li>
-          <span>Total: ${cart.sum?.toFixed(2)}</span>
-        </li>
       </ul>
+
+      <div className="total">
+          <span>Total:  {cart.sum ? handleFormatPrice(cart.sum) : "R$ 0,00"}</span>
+           <button onClick={handleClearCart}>Esvaziar Carrinho</button>
+        </div>
+        
       </>
     ) : (
      <>
-     <p className="linkForHome">Seu carrinho está vazio, confira  <Link to="/">aqui</Link> nossos produtos</p>
+     <p className="linkForHome"> Você ainda não adicionou nenhum item, clique <Link to="/" className="toHome">aqui</Link> para adicionar produtos!</p>
      
      </>
     )}
 
-     
     </div>
   );
 };

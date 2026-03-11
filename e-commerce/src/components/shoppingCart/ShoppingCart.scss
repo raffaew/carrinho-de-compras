@@ -2,13 +2,60 @@
 
 .shoppingCart {
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 16px;
+  margin-top: 69px;
+  height: 100%;
+  width: 1200px;
+
+  .cardItem {
+    h3 {
+      margin: 0 auto;
+    }
+
+    .addOrDelItems {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          text-align: center;
+          width: 40%;
+          border: 1px solid var(--border-colors);
+
+          .addIcon,
+          .removeIcon {
+            cursor: pointer;
+            font-size: 20px;
+          }
+
+          span {
+            padding: 0px 20px;
+          }
+        }
+   
+  }
+
+  .total {
+    background-color: var(--background-cards);
+    border: 1px solid var(--border-colors);
+    padding: 10px;
+    border-radius: 6px;
+    width: 100%;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+  }
 
   .linkForHome{
-    a {
+    width: 550px;
+    font-size: 25px;
+    text-align: center;
+    background-color: var(--background-cards);
+    border-radius: 6px;
+     box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.155);
+    .toHome {
       text-decoration: none;
       color: blue;
       

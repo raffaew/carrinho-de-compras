@@ -1,19 +1,12 @@
 @use "../../global.scss" as *;
 
 .home {
-  @include shoppingCartStyles;
+  margin-top: 69px;
   display: flex;
-  align-items: start;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-top: 16px;
   text-align: center;
 
-  
-
-  .cardItem{
-    background-color: #e7e7e7;
-    
-  }
-  
+   @include shoppingCartStyles;
 }

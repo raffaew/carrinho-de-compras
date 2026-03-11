@@ -6,7 +6,7 @@ import { useShoppingCart } from "../../contexts/shoppingCart/UseShoppingCart";
 
 export const Home = () => {
   const [items, setItems] = useState<ItemsType[]>([]);
-  const { handleAddItem } = useShoppingCart();
+  const { handleAddItem, handleFormatPrice } = useShoppingCart();
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -22,17 +22,15 @@ export const Home = () => {
 
   return (
     <div className="home">
-      <h1>Produtos Esportivos</h1>
       <ul>
-        <li>
           {items &&
             items.map((item) => (
-              <div className="cardItem" key={item.id}>
+              <li className="cardItem" key={item.id}>
                 <h3>{item.title}</h3>
                 <img src={item.image} alt={item.title} />
                 <div className="infoPrice">
                   <p>{item.description}</p>
-                  <p>R$: {item.price.toFixed(2)}</p>
+                  <p className="price">{handleFormatPrice(item.price)}</p>
 
                   <button
                     onClick={() =>
@@ -46,9 +44,9 @@ export const Home = () => {
                     Adicionar ao carrinho
                   </button>
                 </div>
-              </div>
+              </li>
             ))}
-        </li>
+     
       </ul>
     </div>
   );

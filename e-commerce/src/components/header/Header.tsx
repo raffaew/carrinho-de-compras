@@ -1,12 +1,10 @@
+import "./Header.scss";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../contexts/theme/UseTheme";
-import { IoCart } from "react-icons/io5";
 import { useShoppingCart } from "../../contexts/shoppingCart/UseShoppingCart";
-
-import "./Header.scss";
-
-import { MdDarkMode } from "react-icons/md";
+import { CiDark } from "react-icons/ci";
 import { MdLightMode } from "react-icons/md";
+import { HiOutlineShoppingBag } from "react-icons/hi2";
 
 const Header = () => {
   const { theme, toggleTheme } = useTheme();
@@ -15,17 +13,17 @@ const Header = () => {
   return (
     <div className="header">
       <div className="title-header">
-        <Link to="/">Header</Link>
+        <Link to="/">Produtos</Link>
       </div>
       <div className="icons">
-        <div className="icon-theme">
+        <div className="icon-theme ">
           <button onClick={toggleTheme}>
-            {theme === "light" ? <MdDarkMode /> : <MdLightMode />}
+            {theme === "light" ? <CiDark/> : <MdLightMode/>}
           </button>
         </div>
         <div className="icon-cart">
           <Link to="/cart">
-            <IoCart className="cart" />
+            <HiOutlineShoppingBag className="cart" />
           </Link>
           {cart.total != 0 &&  
           <div className="notification">
