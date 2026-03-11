@@ -23,3 +23,6 @@ Desenvolvi uma página de **e-commerce fictício** para praticar minhas habilida
   - Compartilhamento do estado de tema (**dark/light**) em toda a aplicação.  
 
 > 💡 O objetivo principal deste projeto foi **aplicar na prática os conceitos do Context API** para manipulação e compartilhamento de estados entre componentes.
+
+<img width="1683" height="891" alt="Captura de tela 2026-03-11 175939" src="https://github.com/user-attachments/assets/6facddcc-736a-4785-b7f0-49ff1bc67d23" />
+<img width="1144" height="803" alt="Captura de tela 2026-03-11 175920" src="https://github.com/user-attachments/assets/47280601-9d6c-4db5-86ce-de948132b0d0" />
