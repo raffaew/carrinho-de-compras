@@ -42,7 +42,7 @@
       }
 
       span {
-        position:fixed;
+        position:relative;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -54,10 +54,8 @@
         color: #fff;
         font-weight: 500;
         font-size: 14px;
-        right: 19px;
-        top: 12px
-        
-        
+        right: 10px;
+        top: 12px;
       }
     }
   }

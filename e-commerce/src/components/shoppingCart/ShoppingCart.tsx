@@ -1,4 +1,5 @@
 import "./ShoppingCart.scss";
+import { Link } from "react-router-dom";
 import { useShoppingCart } from "../../contexts/shoppingCart/UseShoppingCart";
 import type { ItemsType } from "../../contexts/shoppingCart/ShoppingCartType";
 import "./ShoppingCart.scss";
@@ -7,7 +8,8 @@ import { IoMdAdd } from "react-icons/io";
 import { IoRemove } from "react-icons/io5";
 
 const ShoppingCart = () => {
-  const { cart, handleClearCart, handleUpdateItem, handleDeleteItem } = useShoppingCart();
+  const { cart, handleClearCart, handleUpdateItem, handleDeleteItem } =
+    useShoppingCart();
 
   const [newCart, setNewCart] = useState<ItemsType[]>([]);
 
@@ -16,7 +18,7 @@ const ShoppingCart = () => {
     : {};
 
   const [quantityItems, setQuantityItems] = useState<{ [key: string]: number }>(
-    initialQuantities
+    initialQuantities,
   );
 
   useEffect(() => {
@@ -24,32 +26,32 @@ const ShoppingCart = () => {
       setNewCart(cart.items);
       setQuantityItems(
         Object.fromEntries(
-          cart.items.map((item) => [item.id, item.quantity ?? 1])
-        )
+          cart.items.map((item) => [item.id, item.quantity ?? 1]),
+        ),
       );
     }
   }, []);
 
-useEffect(() => {
-  newCart.forEach((item) => {
-    if (item.quantity === 0) {
-      handleDeleteItem(item.id);
-    }
-  })
-   handleUpdateItem(newCart);
-}, [newCart]);
+  useEffect(() => {
+    newCart.forEach((item) => {
+      if (item.quantity === 0) {
+        handleDeleteItem(item.id);
+      }
+    });
+    handleUpdateItem(newCart);
+  }, [newCart]);
 
   const handleQuantityChange = (
     id: number,
-    action: "increase" | "decrease"
+    action: "increase" | "decrease",
   ) => {
     setQuantityItems((prev) => {
       const newQuantity = action === "increase" ? prev[id] + 1 : prev[id] - 1;
 
       setNewCart((prevCart) =>
         prevCart.map((item) =>
-          item.id === id ? { ...item, quantity: newQuantity  } : item
-        )
+          item.id === id ? { ...item, quantity: newQuantity } : item,
+        ),
       );
 
       return {
@@ -57,49 +59,54 @@ useEffect(() => {
         [id]: newQuantity,
       };
     });
-
   };
 
   return (
     <div className="shoppingCart">
       <h1>Carrinho</h1>
-
-      <button onClick={handleClearCart}>Esvaziar Carrinho</button>
-
+    {(cart.items?.length !== 0) ? (
+      <>
+       <button onClick={handleClearCart}>Esvaziar Carrinho</button>
       <ul>
         <li>
-          {cart.items ? (
-            cart.items?.map((item) => (
-              <div className="cardItem" key={item.id}>
-                <h3>{item.title}</h3>
-                <p>Preço: ${item.price?.toFixed(2)}</p>
-                <p>Quantidade: {quantityItems[item.id]}</p>
-                <img src={item.image} alt={item.title} />
+          {cart.items?.map((item) => (
+            <div className="cardItem" key={item.id}>
+              <h3>{item.title}</h3>
+              <p>Preço: ${item.price?.toFixed(2)}</p>
+              <p>Quantidade: {quantityItems[item.id]}</p>
+              <img src={item.image} alt={item.title} />
 
-                <div className="addOrDelItems">
-                  <IoRemove
-                    className="removeIcon"
-                    onClick={() => handleQuantityChange(item.id, "decrease")}
-                  />
-                  <span>{quantityItems[item.id]}</span>
-                  <IoMdAdd
-                    className="addIcon"
-                    onClick={() => handleQuantityChange(item.id, "increase")}
-                  />
-                </div>
-                <div className="subTotal">
-                  Subtotal: {(item.quantity * item.price).toFixed(2)}
-                </div>
+              <div className="addOrDelItems">
+                <IoRemove
+                  className="removeIcon"
+                  onClick={() => handleQuantityChange(item.id, "decrease")}
+                />
+                <span>{quantityItems[item.id]}</span>
+                <IoMdAdd
+                  className="addIcon"
+                  onClick={() => handleQuantityChange(item.id, "increase")}
+                />
               </div>
-            ))
-          ) : (
-            <p>Não há items no carrinho</p>
-          )}
+
+              <div className="subTotal">
+                Subtotal: {(item.quantity * item.price).toFixed(2)}
+              </div>
+            </div>
+          ))}
         </li>
         <li>
           <span>Total: ${cart.sum?.toFixed(2)}</span>
         </li>
       </ul>
+      </>
+    ) : (
+     <>
+     <p className="linkForHome">Seu carrinho está vazio, confira  <Link to="/">aqui</Link> nossos produtos</p>
+     
+     </>
+    )}
+
+     
     </div>
   );
 };

@@ -7,5 +7,13 @@
   flex-direction: column;
   margin-top: 16px;
 
+  .linkForHome{
+    a {
+      text-decoration: none;
+      color: blue;
+      
+    }
+  }
+
   @include shoppingCartStyles;
 }

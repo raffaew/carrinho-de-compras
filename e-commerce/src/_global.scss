@@ -1,6 +1,7 @@
 :root {
   --background-color: #ffffff;
   --text-color: #000000;
+  font-family: poppins, sans-serif;
 }
 
 [data-theme="dark"] {
@@ -23,15 +24,15 @@
 
 }
 
-  // #region shoppingCart
+
   @mixin shoppingCartStyles {
     ul {
       list-style: none;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      border: 1px solid black;
       margin-top: 16px;
+     
 
       li {
         display: flex;
@@ -39,19 +40,33 @@
         flex-wrap: wrap;
         gap: 4rem;
         padding: 16px;
+
         .cardItem {
           display: flex;
-          align-items: center;
-          justify-content: center;
+          align-items: start;
+          justify-content: space-between;
           gap: 10px;
           flex-direction: column;
-          border: 1px solid black;
           width: 300px;
-          height: 600px;
+          height: 550px;
           padding: 16px;
+          box-shadow: 3px 3px 10px 3px rgba(0, 0, 0, 0.155);
+          border-radius: 6px;
 
           img {
             width: 100%;
+          }
+
+          .infoPrice{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+                height: 140px;
+    justify-content: space-around;
+
+            p {
+              text-align: left;
+            }
           }
 
           .addOrDelItems {
@@ -82,4 +97,15 @@
 body {
   background-color: var(--background-color);
   color: var(--text-color);
+
+  button {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    font-family: poppins, sans-serif;
+    border: 1px solid rgba(0, 0, 0, 0.301);
+    
+    
+  }
 }

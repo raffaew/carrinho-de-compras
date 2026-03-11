@@ -30,20 +30,22 @@ export const Home = () => {
               <div className="cardItem" key={item.id}>
                 <h3>{item.title}</h3>
                 <img src={item.image} alt={item.title} />
-                <p>{item.description}</p>
-                <p>R$: {item.price.toFixed(2)}</p>
+                <div className="infoPrice">
+                  <p>{item.description}</p>
+                  <p>R$: {item.price.toFixed(2)}</p>
 
-                <button
-                  onClick={() =>
-                    handleAddItem({
-                      items: [{ ...item, quantity: 1 }],
-                      sum: item.price,
-                      total: 1,
-                    })
-                  }
-                >
-                  Adicionar ao carrinho
-                </button>
+                  <button
+                    onClick={() =>
+                      handleAddItem({
+                        items: [{ ...item, quantity: 1 }],
+                        sum: item.price,
+                        total: 1,
+                      })
+                    }
+                  >
+                    Adicionar ao carrinho
+                  </button>
+                </div>
               </div>
             ))}
         </li>

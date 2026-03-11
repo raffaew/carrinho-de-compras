@@ -16,8 +16,6 @@ export const ShoppingCartProvider = ({ children }: ShoppingProviderProps) => {
     total: 0,
   });
 
-  console.log("Carrinho ", cart);
-
   const handleAddItem = (item: ShoppingCart) => {
     if (
       item.items &&
